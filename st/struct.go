@@ -1,19 +1,17 @@
 package st
 
 import (
-	gs "google.golang.org/grpc/status"
+	"google.golang.org/grpc/codes"
 )
 
 // err -
 type err struct {
-	gst *gs.Status
-	// st  *body
+	gst codes.Code // grpc Code
+	st  *body      //自定義 Code
+}
+
+// body -
+type body struct {
 	Code int32  `json:"code" yaml:"code" `
 	Msg  string `json:"msg" yaml:"msg"`
 }
-
-// // body -
-// type body struct {
-	
-// }
-
