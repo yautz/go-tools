@@ -2,6 +2,7 @@ package consul
 
 import (
 	"bytes"
+	"fmt"
 
 	"github.com/hashicorp/consul/api"
 	"github.com/spf13/viper"
@@ -20,7 +21,7 @@ func ConsulKV(host, key string, ftype string) (*viper.Viper, error) {
 	client, err := api.NewClient(c)
 
 	if err != nil {
-		panic("connect" + host + "failed")
+		fmt.Println("connect" + host + "failed")
 		return nil, err
 	}
 
@@ -30,7 +31,7 @@ func ConsulKV(host, key string, ftype string) (*viper.Viper, error) {
 	pair, _, err := kv.Get(key, nil)
 
 	if err != nil {
-		panic("KV Data Not Found")
+		fmt.Println("KV Data Not Found")
 		return nil, err
 	}
 
@@ -45,7 +46,7 @@ func ConsulKV(host, key string, ftype string) (*viper.Viper, error) {
 	err = v.ReadConfig(bytes.NewReader(pair.Value))
 
 	if err != nil {
-		panic("read consul config failed with key :" + key)
+		fmt.Println("read consul config failed with key :" + key)
 		return nil, err
 	}
 	return v, nil
