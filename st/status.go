@@ -47,7 +47,7 @@ func ConvertError(errs error) Errors {
 			temp.st.Msg = gt.Message()
 		}
 	} else {
-		fmt.Println("convert error failed with errr : %s", errs.Error())
+		fmt.Printf("convert error failed with errr : %s", errs.Error())
 	}
 
 	return temp
