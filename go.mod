@@ -11,4 +11,5 @@ require (
 	go.mongodb.org/mongo-driver v1.3.3
 	google.golang.org/grpc v1.29.1
 	github.com/sirupsen/logrus v1.4.2
+	github.com/gin-gonic/gin v1.6.3
 )
